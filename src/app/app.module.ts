@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { PlayerService } from "./services/player.service";
+import { TeamService } from './services/team.service';
 
 @NgModule({
   declarations: [
