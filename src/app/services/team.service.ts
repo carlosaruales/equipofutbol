@@ -14,7 +14,7 @@ export class TeamService {
     this.teamsDb = this.db.list("/teams", ref => ref.orderByChild("name"));
   }
 
-  getPlayers(): Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.teamsDb.snapshotChanges().pipe(
       map(changes => {
         return changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }));
@@ -22,15 +22,15 @@ export class TeamService {
     );
   }
 
-  addPlayer(player:Team){
+  addTeam(player:Team){
     return this.teamsDb.push(player);
   }
 
-  deletePlayer(id:string){
+  deleteTeam(id:string){
     this.db.list('/teams').remove(id);
   }
 
-  editPlayer(newPlayarData){
+  editTeam(newPlayarData){
     const $key = newPlayarData.$key;
     delete(newPlayarData.$key);
     this.db.list('/teams').update($key,newPlayarData);

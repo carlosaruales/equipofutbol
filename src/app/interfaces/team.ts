@@ -5,4 +5,4 @@ export interface Team{
   name:string;
   country:Countries;
   players: Player[];
-}
+}       

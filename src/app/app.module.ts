@@ -8,16 +8,22 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { PlayerService } from "./services/player.service";
 import { TeamService } from './services/team.service';
+import { TeamTableComponent } from './components/team-table/team-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TeamTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment),
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
